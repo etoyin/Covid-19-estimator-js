@@ -30,7 +30,8 @@ export const impactCases = (data) => {
   const hospitalBedsByRequestedTime = hospitalBedsAvailable - severeCasesByRequestedTime;
   const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
   const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
-  const dollarsInFlight = Number((region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays).toFixed(2));
+  const toTwodecimal = (region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays).toFixed(2);
+  const dollarsInFlight = Number(toTwodecimal);
 
   return {
     currentlyInfected,
@@ -59,7 +60,8 @@ export const severeImpactCases = (data) => {
   const hospitalBedsByRequestedTime = hospitalBedsAvailable - severeCasesByRequestedTime;
   const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
   const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
-  const dollarsInFlight = Number((region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays).toFixed(2));
+  const toTwodecimal = (region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays).toFixed(2);
+  const dollarsInFlight = Number(toTwodecimal);
 
   return {
     currentlyInfected,
