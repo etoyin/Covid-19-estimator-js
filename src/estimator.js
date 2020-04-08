@@ -43,7 +43,7 @@ export const impactCases = (data) => {
   };
 };
 
-export const severImpactCases = (data) => {
+export const severeImpactCases = (data) => {
   const {
     periodType,
     timeToElapse,
@@ -75,8 +75,8 @@ export const severImpactCases = (data) => {
 const covid19ImpactEstimator = (data) => (
   {
     data,
-    impact: impactCases (data),
-    severeImpact: severeImpactCases (data)
+    impact: impactCases(data),
+    severeImpact: severeImpactCases(data)
   }
 );
 
