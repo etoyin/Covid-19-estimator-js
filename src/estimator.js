@@ -1,11 +1,4 @@
-const covid19ImpactEstimator = (data) => {
-    return {
-        data: data,
-        impact: impactCases(data),
-        severeImpact: severeImpactCases(data)
-    }
-
-};
+const covid19ImpactEstimator = (data) => ({data: data, impact: impactCases(data), severeImpact: severeImpactCases(data)});
 
 export const convertToDays = (periodType, timeToElapse) => {
     let timeInDays;
@@ -20,9 +13,7 @@ export const convertToDays = (periodType, timeToElapse) => {
             timeInDays = timeToElapse;
     }
     return timeInDays;
-
 }
-
 
 export const impactCases = (data) => {
     const {periodType, timeToElapse, reportedCases, population, totalHospitalBeds, region} = data;
@@ -34,7 +25,6 @@ export const impactCases = (data) => {
     const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
     const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
     const dollarsInFlight = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
-    //const hospitalBedsByRequestedTime = (availableBedSpace > 0)
 
     return {
         currentlyInfected: currentlyInfected,
@@ -57,7 +47,6 @@ export const severeImpactCases = (data) => {
     const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
     const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
     const dollarsInFlight = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
-    //const hospitalBedsByRequestedTime = (availableBedSpace > 0)
 
     return {
         currentlyInfected: currentlyInfected,
