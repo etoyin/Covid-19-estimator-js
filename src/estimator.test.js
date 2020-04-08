@@ -42,7 +42,7 @@ describe('impactCases', () => {
 
     expect(impactCases(data2)).toEqual({
       currentlyInfected: 60,
-      infectionsByRequestedTime: 240, 
+      infectionsByRequestedTime: 240,
       severeCasesByRequestedTime: 36,
       hospitalBedsByRequestedTime: 178,
       casesForICUByRequestedTime: 12,
@@ -92,7 +92,7 @@ describe('severeImpactCases', () => {
     };
     expect(severeImpactCases(data2)).toEqual({
       currentlyInfected: 300,
-      infectionsByRequestedTime: 1200, 
+      infectionsByRequestedTime: 1200,
       severeCasesByRequestedTime: 180,
       hospitalBedsByRequestedTime: 34,
       casesForICUByRequestedTime: 60,
