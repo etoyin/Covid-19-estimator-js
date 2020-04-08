@@ -39,6 +39,52 @@ describe('impactCases', () => {
       population: 2735,
       totalHospitalBeds: 64
     };
+    const data3 = {
+      region: {
+        name: 'Africa',
+        avgAge: 19.7,
+        avgDailyIncomeInUSD: 4,
+        avgDailyIncomePopulation: 0.51
+      },
+      periodType: 'months',
+      timeToElapse: 0.5,
+      reportedCases: 6,
+      population: 2705,
+      totalHospitalBeds: 614
+    };
+    const data4 = {
+      region: {
+        name: 'Africa',
+        avgAge: 19.7,
+        avgDailyIncomeInUSD: 4,
+        avgDailyIncomePopulation: 0.51
+      },
+      periodType: 'weeks',
+      timeToElapse: 1,
+      reportedCases: 6,
+      population: 2705,
+      totalHospitalBeds: 614
+    };
+
+    expect(impactCases(data3)).toEqual({
+      currentlyInfected: 60,
+      infectionsByRequestedTime: 1920,
+      severeCasesByRequestedTime: 288,
+      hospitalBedsByRequestedTime: -74,
+      casesForICUByRequestedTime: 96,
+      casesForVentilatorsByRequestedTime: 38,
+      dollarsInFlight: 30.6
+    });
+
+    expect(impactCases(data4)).toEqual({
+      currentlyInfected: 60,
+      infectionsByRequestedTime: 240,
+      severeCasesByRequestedTime: 36,
+      hospitalBedsByRequestedTime: 178,
+      casesForICUByRequestedTime: 12,
+      casesForVentilatorsByRequestedTime: 4,
+      dollarsInFlight: 14.28
+    });
 
     expect(impactCases(data2)).toEqual({
       currentlyInfected: 60,
