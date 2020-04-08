@@ -39,15 +39,19 @@ describe('impactCases', () => {
       population: 2735,
       totalHospitalBeds: 64
     };
-    expect(impactCases(data2)).toEqual({ currentlyInfected: 60,
+
+    expect(impactCases(data2)).toEqual({
+      currentlyInfected: 60,
       infectionsByRequestedTime: 240, 
       severeCasesByRequestedTime: 36,
       hospitalBedsByRequestedTime: 178,
       casesForICUByRequestedTime: 12,
       casesForVentilatorsByRequestedTime: 4,
-      dollarsInFlight:  16.32
-                                        });
-    expect(impactCases(data)).toEqual({ currentlyInfected: 160,
+      dollarsInFlight: 16.32
+    });
+
+    expect(impactCases(data)).toEqual({
+      currentlyInfected: 160,
       infectionsByRequestedTime: 10240,
       severeCasesByRequestedTime: 1536,
       hospitalBedsByRequestedTime: -1514,
@@ -86,15 +90,17 @@ describe('severeImpactCases', () => {
       population: 2735,
       totalHospitalBeds: 64
     };
-    expect(severeImpactCases(data2)).toEqual({ currentlyInfected: 300,
+    expect(severeImpactCases(data2)).toEqual({
+      currentlyInfected: 300,
       infectionsByRequestedTime: 1200, 
       severeCasesByRequestedTime: 180,
       hospitalBedsByRequestedTime: 34,
       casesForICUByRequestedTime: 60,
       casesForVentilatorsByRequestedTime: 24,
-      dollarsInFlight:  16.32
+      dollarsInFlight: 16.32
     });
-    expect(severeImpactCases(data)).toEqual({ currentlyInfected: 800,
+    expect(severeImpactCases(data)).toEqual({
+      currentlyInfected: 800,
       infectionsByRequestedTime: 51200,
       severeCasesByRequestedTime: 7680,
       hospitalBedsByRequestedTime: -7658,
