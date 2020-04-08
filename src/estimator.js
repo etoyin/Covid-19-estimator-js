@@ -8,7 +8,7 @@ export const convertToDays = (periodType, timeToElapse) => {
     case 'weeks':
       timeInDays = timeToElapse * 7;
       break;
-    case 'days':
+    default:
       timeInDays = timeToElapse;
   }
   return timeInDays;
