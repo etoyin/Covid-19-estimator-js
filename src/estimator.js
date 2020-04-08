@@ -1,7 +1,10 @@
-const covid19ImpactEstimator = (data) => ({ data: data, 
-                                            impact: impactCases(data), 
-                                            severeImpact: severeImpactCases(data)
-                                    });
+const covid19ImpactEstimator = (data) => (
+    { 
+        data: data, 
+        impact: impactCases(data), 
+        severeImpact: severeImpactCases(data)
+    }
+);
 
 export const convertToDays = (periodType, timeToElapse) => {
     let timeInDays;
