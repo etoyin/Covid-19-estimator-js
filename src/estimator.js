@@ -1,7 +1,7 @@
 
-export const convertToDays = ( periodType, timeToElapse ) => {
+export const convertToDays = (periodType, timeToElapse) => {
   let timeInDays;
-  switch ( periodType ){
+  switch (periodType){
     case 'months':
       timeInDays = timeToElapse * 30;
       break;
@@ -14,8 +14,8 @@ export const convertToDays = ( periodType, timeToElapse ) => {
   return timeInDays;
 };
 
-export const impactCases = ( data ) => {
-  const { periodType, timeToElapse, reportedCases, population, totalHospitalBeds, region } = data;
+export const impactCases = (data) => {
+  const { periodType, timeToElapse, reportedCases, totalHospitalBeds, region } = data;
   const currentlyInfected = reportedCases * 10;
   const timeInDays = convertToDays(periodType, timeToElapse);
   const infectionsByRequestedTime = currentlyInfected * ( 2 ** Math.floor( timeInDays / 3 ) );
