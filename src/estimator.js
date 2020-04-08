@@ -15,20 +15,21 @@ export const convertToDays = (periodType, timeToElapse) => {
 };
 
 export const impactCases = (data) => {
-  const { 
-    periodType, 
-    timeToElapse, 
-    reportedCases, 
-    totalHospitalBeds, 
-    region 
+  const {
+    periodType,
+    timeToElapse,
+    reportedCases,
+    totalHospitalBeds,
+    region
   } = data;
   const currentlyInfected = reportedCases * 10;
-  const timeInDays = convertToDays (periodType, timeToElapse);
-  const infectionsByRequestedTime = currentlyInfected * (2 ** Math.floor (timeInDays / 3));
-  const severeCasesByRequestedTime = Math.floor (infectionsByRequestedTime * 0.15);
-  const hospitalBedsByRequestedTime = Math.floor (totalHospitalBeds * 0.35) - severeCasesByRequestedTime;
-  const casesForICUByRequestedTime = Math.floor (infectionsByRequestedTime * 0.05);
-  const casesForVentilatorsByRequestedTime = Math.floor (infectionsByRequestedTime * 0.02);
+  const timeInDays = convertToDays(periodType, timeToElapse);
+  const infectionsByRequestedTime = currentlyInfected * (2 ** Math.floor(timeInDays / 3));
+  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
+  const hospitalBedsAvailable = Math.floor(totalHospitalBeds * 0.35);
+  const hospitalBedsByRequestedTime = hospitalBedsAvailable - severeCasesByRequestedTime;
+  const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
+  const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
   const dollarsInFlight = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   
   return {
@@ -51,12 +52,13 @@ export const severeImpactCases = (data) => {
     region 
   } = data;
   const currentlyInfected = reportedCases * 50;
-  const timeInDays = convertToDays (periodType, timeToElapse);
+  const timeInDays = convertToDays(periodType, timeToElapse);
   const infectionsByRequestedTime = currentlyInfected * (2 ** Math.floor (timeInDays / 3));
-  const severeCasesByRequestedTime = Math.floor (infectionsByRequestedTime * 0.15);
-  const hospitalBedsByRequestedTime = Math.floor (totalHospitalBeds * 0.35) - severeCasesByRequestedTime;
-  const casesForICUByRequestedTime = Math.floor (infectionsByRequestedTime * 0.05);
-  const casesForVentilatorsByRequestedTime = Math.floor (infectionsByRequestedTime * 0.02);
+  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
+  const hospitalBedsAvailable = Math.floor(totalHospitalBeds * 0.35);
+  const hospitalBedsByRequestedTime = hospitalBedsAvailable - severeCasesByRequestedTime;
+  const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
+  const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
   const dollarsInFlight = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   
   return {
@@ -70,7 +72,7 @@ export const severeImpactCases = (data) => {
   }
 }
 
-const covid19ImpactEstimator = (data) =>  (
+const covid19ImpactEstimator = (data) => (
   {
     data,
     impact: impactCases (data),
