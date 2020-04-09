@@ -52,7 +52,7 @@ export const impactCases = (data) => {
 export const severeImpactCases = (data) => {
   const { reportedCases } = data;
   const currentlyInfected = reportedCases * 50;
-  return commonFunction(currentlyInfected, data);  
+  return commonFunction(currentlyInfected, data);
 };
 
 const covid19ImpactEstimator = (data) => (
