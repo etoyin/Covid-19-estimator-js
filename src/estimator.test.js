@@ -3,7 +3,7 @@ import { convertToDays, impactCases, severeImpactCases } from './estimator';
 
 describe('convertToDays', () => {
   it('Should return all answers in days', () => {
-    expect(convertToDays('days', 15628)).toBe(15628);
+    expect(convertToDays('days', 156285)).toBe(156285);
     expect(convertToDays('weeks', 400)).toBe(2800);
     expect(convertToDays('weeks', 8)).toBe(56);
     expect(convertToDays('months', 2)).toBe(60);
