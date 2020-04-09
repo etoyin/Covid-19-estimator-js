@@ -22,12 +22,12 @@ const commonFunction = (currentlyInfected, data) => {
     region
   } = data;
   const timeInDays = convertToDays(periodType, timeToElapse);
-  const infectionsByRequestedTime = currentlyInfected * (2 ** Math.floor(timeInDays / 3));
-  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
-  const hospitalBedsAvailable = Math.floor(totalHospitalBeds * 0.35);
+  const infectionsByRequestedTime = currentlyInfected * (2 ** Math.trunc(timeInDays / 3));
+  const severeCasesByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.15);
+  const hospitalBedsAvailable = Math.trunc(totalHospitalBeds * 0.35);
   const hospitalBedsByRequestedTime = hospitalBedsAvailable - severeCasesByRequestedTime;
-  const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
-  const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
+  const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.05);
+  const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.02);
   const dollarOut = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
   const toTwodecimal = dollarOut.toFixed(2);
   const dollarsInFlight = Number(toTwodecimal);
