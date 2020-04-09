@@ -57,7 +57,7 @@ describe('impactCases', () => {
         name: 'Africa',
         avgAge: 19.7,
         avgDailyIncomeInUSD: 4,
-        avgDailyIncomePopulation: 0.510
+        avgDailyIncomePopulation: 0.51
       },
       periodType: 'weeks',
       timeToElapse: 1,
