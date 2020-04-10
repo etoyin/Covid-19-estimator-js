@@ -23,7 +23,7 @@ const commonFunction = (currentlyInfected, data) => {
   } = data;
   const {
     avgDailyIncomeInUSD,
-    avgDailyIncomePopulation
+    //avgDailyIncomePopulation
   } = region;
   const timeInDays = convertToDays(periodType, timeToElapse);
   const infectionsByRequestedTime = currentlyInfected * (2 ** Math.trunc(timeInDays / 3));
