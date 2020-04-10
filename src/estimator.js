@@ -18,7 +18,6 @@ const commonFunction = (currentlyInfected, data) => {
   const {
     periodType,
     timeToElapse,
-    population,
     totalHospitalBeds,
     region
   } = data;
