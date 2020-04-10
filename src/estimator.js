@@ -19,7 +19,6 @@ const commonFunction = (currentlyInfected, data) => {
     periodType,
     timeToElapse,
     totalHospitalBeds,
-    population,
     region
   } = data;
   const {
@@ -34,7 +33,7 @@ const commonFunction = (currentlyInfected, data) => {
   const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.05);
   const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.02);
   const avgDollarXIncomePopXtime = avgDailyIncomePopulation * avgDailyIncomeInUSD;
-  const dollarOut = population * avgDollarXIncomePopXtime;
+  const dollarOut = infectionsByRequestedTime * avgDollarXIncomePopXtime;
   const dollarsInFlight = Number(dollarOut.toFixed(2));
 
   return {
