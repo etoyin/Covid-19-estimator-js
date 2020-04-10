@@ -23,9 +23,9 @@ const commonFunction = (currentlyInfected, data) => {
   } = data;
   const timeInDays = convertToDays(periodType, timeToElapse);
   const infectionsByRequestedTime = currentlyInfected * (2 ** Math.trunc(timeInDays / 3));
-  const severeCasesByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.15);
-  const hospitalBedsAvailable = Math.trunc(totalHospitalBeds * 0.35);
-  const hospitalBedsByRequestedTime = hospitalBedsAvailable - severeCasesByRequestedTime;
+  const severeCasesByRequestedTime = infectionsByRequestedTime * 0.15;
+  const hospitalBedsAvailable = totalHospitalBeds * 0.35;
+  const hospitalBedsByRequestedTime = Math.trunc(hospitalBedsAvailable - severeCasesByRequestedTime);
   const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.05);
   const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.02);
   const dollarOut = region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD * timeInDays;
