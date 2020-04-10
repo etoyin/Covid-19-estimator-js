@@ -70,7 +70,7 @@ describe('impactCases', () => {
       currentlyInfected: 60,
       infectionsByRequestedTime: 1920,
       severeCasesByRequestedTime: 288,
-      hospitalBedsByRequestedTime: -74,
+      hospitalBedsByRequestedTime: -73,
       casesForICUByRequestedTime: 96,
       casesForVentilatorsByRequestedTime: 38,
       dollarsInFlight: 30.6
@@ -149,7 +149,7 @@ describe('severeImpactCases', () => {
       currentlyInfected: 800,
       infectionsByRequestedTime: 51200,
       severeCasesByRequestedTime: 7680,
-      hospitalBedsByRequestedTime: -7658,
+      hospitalBedsByRequestedTime: -7657,
       casesForICUByRequestedTime: 2560,
       casesForVentilatorsByRequestedTime: 1024,
       dollarsInFlight: 22.14
