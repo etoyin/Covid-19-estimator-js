@@ -39,52 +39,6 @@ describe('impactCases', () => {
       population: 2735,
       totalHospitalBeds: 64
     };
-    const data3 = {
-      region: {
-        name: 'Africa',
-        avgAge: 19.7,
-        avgDailyIncomeInUSD: 4,
-        avgDailyIncomePopulation: 0.51
-      },
-      periodType: 'months',
-      timeToElapse: 0.5,
-      reportedCases: 6,
-      population: 2705,
-      totalHospitalBeds: 614
-    };
-    const data4 = {
-      region: {
-        name: 'Africa',
-        avgAge: 19.7,
-        avgDailyIncomeInUSD: 4,
-        avgDailyIncomePopulation: 0.51
-      },
-      periodType: 'weeks',
-      timeToElapse: 1,
-      reportedCases: 6,
-      population: 2705,
-      totalHospitalBeds: 614
-    };
-
-    expect(impactCases(data3)).toEqual({
-      currentlyInfected: 60,
-      infectionsByRequestedTime: 1920,
-      severeCasesByRequestedTime: 288,
-      hospitalBedsByRequestedTime: -73,
-      casesForICUByRequestedTime: 96,
-      casesForVentilatorsByRequestedTime: 38,
-      dollarsInFlight: 30.6
-    });
-
-    expect(impactCases(data4)).toEqual({
-      currentlyInfected: 60,
-      infectionsByRequestedTime: 240,
-      severeCasesByRequestedTime: 36,
-      hospitalBedsByRequestedTime: 178,
-      casesForICUByRequestedTime: 12,
-      casesForVentilatorsByRequestedTime: 4,
-      dollarsInFlight: 14.28
-    });
 
     expect(impactCases(data2)).toEqual({
       currentlyInfected: 60,
@@ -93,17 +47,17 @@ describe('impactCases', () => {
       hospitalBedsByRequestedTime: 178,
       casesForICUByRequestedTime: 12,
       casesForVentilatorsByRequestedTime: 4,
-      dollarsInFlight: 16.32
+      dollarsInFlight: 61
     });
 
     expect(impactCases(data)).toEqual({
       currentlyInfected: 160,
       infectionsByRequestedTime: 10240,
       severeCasesByRequestedTime: 1536,
-      hospitalBedsByRequestedTime: -1514,
+      hospitalBedsByRequestedTime: -1513,
       casesForICUByRequestedTime: 512,
       casesForVentilatorsByRequestedTime: 204,
-      dollarsInFlight: 22.14
+      dollarsInFlight: 699
     });
   });
 });
@@ -143,7 +97,7 @@ describe('severeImpactCases', () => {
       hospitalBedsByRequestedTime: 34,
       casesForICUByRequestedTime: 60,
       casesForVentilatorsByRequestedTime: 24,
-      dollarsInFlight: 16.32
+      dollarsInFlight: 306
     });
     expect(severeImpactCases(data)).toEqual({
       currentlyInfected: 800,
@@ -152,7 +106,7 @@ describe('severeImpactCases', () => {
       hospitalBedsByRequestedTime: -7657,
       casesForICUByRequestedTime: 2560,
       casesForVentilatorsByRequestedTime: 1024,
-      dollarsInFlight: 22.14
+      dollarsInFlight: 3498
     });
   });
 });
